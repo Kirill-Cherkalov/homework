@@ -7,7 +7,7 @@ export class Item extends Component {
             let allItems = document.getElementsByClassName("item");
             
             for (let x = 0; x < allItems.length; x++) {
-                this.props.data(allItems[x]);
+                // this.props.data(allItems[x]);
             }}, 5000)
     }
 

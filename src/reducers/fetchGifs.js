@@ -1,8 +1,12 @@
-const initialState = [];
+const initialState = [
+    {
+
+    }
+];
 
 export function fetchGifs (state = initialState, action) {
-    
-    if(action.type === 'LOAD_GIFS') {
+    switch(action.type){
+        case('LOAD_GIFS'):
         return [...state, ...action.payload];
     }
     return state;

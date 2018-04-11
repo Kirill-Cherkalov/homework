@@ -4,7 +4,7 @@ import { Grid } from '../Grid/Grid';
 import { Provider } from 'react-redux';
 import { createStore, compose, applyMiddleware } from 'redux';
 import { mainReducer } from '../../reducers/mainReducer'
-import { Example } from '../Example/Example'
+// import { Example } from '../Example/Example'
 
 function middleware({dispatch, getState}) {
   return next => action => {
