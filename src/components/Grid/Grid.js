@@ -13,68 +13,57 @@ export const Grid = connect(stateToProps) (
      class Grid extends Component {
 
          state = {
-            loading: true
+            loading: true,
+            prevProps:[this.props.items]
         };
 
-        resizeGridItem(item) {
-            // let grid = document.getElementsByClassName("grid")[0];
-            // let rowHeight = parseInt(window.getComputedStyle(grid).getPropertyValue('grid-auto-rows'), 10);//20
-            let rowHeight = 20
-            // let rowGap = parseInt(window.getComputedStyle(grid).getPropertyValue('grid-row-gap'), 10);//10
-            let rowGap = 10
-            let rowSpan = Math.ceil((item.querySelector('.content').getBoundingClientRect().height + rowGap) / (rowHeight + rowGap));
-            // let rowSpan =((item + rowGap) / (rowHeight + rowGap));
-             item.style.gridRowEnd = "span " + rowSpan;
-        }
-    
         componentDidMount(props,dispatch) {
             this.props.dispatch(getGifs())
-            document.addEventListener("DOMContentLoaded", this.DOMContentLoaded);
-            // window.onload = this.onload();
-            if(this.props.items) {
-                // console.log('jo', this.props.items)
-            }
         }
 
         componentDidUpdate(prevProps) {
-            console.log('componentDidUpdate', this.props, prevProps)
+            // console.log('componentDidUpdate', this.props, prevProps)
+            // this.setState({
+            //     prevProps: 
+            // })
         }
-
-        // DOMContentLoaded() {
-        //     console.log('DOMContentLoaded', this.props)
-            
-        // }
-
-        // onload() {
-        //     console.log('onload', this.props)
-        // }
-
-
 
         componentWillReceiveProps(nextProps) {
-            console.log('componentWillReceiveProps', nextProps, this.props)
+            let lengthOldArr = this.props.items.length;
+            let lengthNewArr = nextProps.items.length - lengthOldArr;
+            let newArr = [... nextProps.items];
+            newArr.splice(0, lengthOldArr)
+            this.setState({
+                prevProps: newArr,
+            })
         }
 
-        componentWillUpdate(props) {
-            // console.log('componentWillUpdate', this.props)
-        }
+
     
         render(props) {
              let Items = this.props.items.map((elem, index) => {
-                // console.log(this.resizeGridItem(elem.height));
                 return (
-                    <Item 
-                    key={index}
-                    // data={ (item) => this.resizeGridItem(item) }
-                    node={this.grid}
-                    src={elem.url}
-                    height={elem.height}
-                    index={index}/>
+                     <Item
+                        key={index}
+                        src={elem.url}
+                        height={elem.height}
+                        index={index}/>
                 ); 
             })
+            // let Items = this.state.prevProps.map((elem, index) => {
+            //     console.log('this.props.items.length', this.props.items.length)
+            //     return (
+            //         <Item 
+            //         key={index  }
+            //         src={elem.url}
+            //         height={elem.height}
+            //         index={index  }/>
+            //     ); 
+            // })
+
             return (
                 <InfiniteScroll fetchNext={this.props.dispatch(getGifs)}>
-                    <div className='grid' ref={(node) => this.grid = node}>
+                    <div className='grid'>
                         { Items }
                     </div>
                 </InfiniteScroll>
