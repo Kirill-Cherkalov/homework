@@ -3,10 +3,10 @@ import { Content } from '../Content/Content';
 import { connect } from 'react-redux'
 
     export class Item extends Component {
-        state = {
-            loading: true,
-            images: []
-        };
+        // state = {
+        //     loading: true,
+        //     images: []
+        // };
     
         componentDidMount (props) {
                 let rowHeight = 20;
@@ -22,7 +22,10 @@ import { connect } from 'react-redux'
         render() {
             return (
                <div className='item' >
-                    <Content src={this.props.src}/>
+                    <Content 
+                    src={this.props.src}
+                    update={this.props.update}
+                    index={this.props.index}/>
                </div>
             );
         }

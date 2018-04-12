@@ -1,0 +1,23 @@
+.preview >  img {
+    /* position: fixed; */
+    /* margin: auto; */
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: auto;
+    height: auto;
+    max-width: 99%;
+    max-height: 99%;
+    overflow: hidden;
+    margin: auto;
+    -webkit-box-shadow: 0 0 20px #000, 0 0 0 1000px rgba(210,210,210,.4);
+            box-shadow: 0 0 20px #000, 0 0 0 1000px rgba(210,210,210,.4);
+}
+
+.preview {
+  position: relative;
+  margin: auto;
+}

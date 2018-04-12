@@ -1,7 +1,22 @@
-.leftButton {
+.leftButton,
+.rightButton {
+    position: absolute;
     border: none;
     border-radius: 20px;
     width: 80px;
     height: 150px;
     background-color: rgba(247,236,74, 1)
+}
+
+.leftButton {
+    left: 0;
+}
+
+.rightButton {
+    right: 0;
+}
+
+.hidden {
+    visibility: hidden;
+    /* display: none; */
 }

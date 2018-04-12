@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
-// import './Button.css';
+import './Button.css';
 
 export class Button extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            position: 'left'
-        }
-    }
+    // constructor(props) {
+    //     super(props);
+    //     this.state = {
+    //         position: 'left'
+    //     }
+    // }
 
     componentDidMount(props) {
 
@@ -18,12 +18,12 @@ export class Button extends Component {
     }
 
     render() {
-        const state = this.state.position;
-        let btnClass = state === 'left' ? 'leftButton' : 'rightButton' ;
-        let bthContainer = state === 'left' ? 'leftCont' : 'rightCont' ;
+        // const state = this.state.position;
+        let btnClass = this.props.modif === 'left' ? 'leftButton' : 'rightButton' ;
+        // let bthContainer = this.props.modif === 'righ' ? 'leftCont' : 'rightCont' ;
         return (
-            <div className={bthContainer}>
-                <button className={btnClass}
+            <div className=''>
+                <button className={btnClass + ' hidden'}
                 onClick={this.handleClick.bind(this)}
                 />
             </div>

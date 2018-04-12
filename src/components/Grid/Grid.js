@@ -4,6 +4,7 @@ import { Item } from '../Item/Item';
 import { connect } from 'react-redux';
 import { getGifs } from '../../actions/getGifs';
 import { InfiniteScroll } from '../InfiniteScroll/InfiniteScroll'
+import { Preview } from '../Preview/Preview'
 
 const stateToProps = state => ({
     items: state.fetchGifs
@@ -13,7 +14,7 @@ export const Grid = connect(stateToProps) (
      class Grid extends Component {
 
          state = {
-            loading: true,
+            index: 0,
             prevProps:[]
         };
 
@@ -29,6 +30,12 @@ export const Grid = connect(stateToProps) (
             })
         }
 
+        updateData(index) {
+            this.setState({
+                index: index
+            })
+        }
+
         render(props) {
                 let Items = this.state.prevProps.map((elem, index) => {
                 return (
@@ -36,14 +43,21 @@ export const Grid = connect(stateToProps) (
                         key={index}
                         src={elem.url}
                         height={elem.height}
-                        index={index}/>
-                ); 
+                        index={index}
+                        update={this.updateData.bind(this)}/>
+                );
             })
-
+            console.log('this.state.data', this.state.data)
+            console.log('index', this.state.index)
             return (
                 <InfiniteScroll fetchNext={this.props.dispatch(getGifs)}>
                     <div className='grid'>
+                        <Preview 
+                            items={this.props.items}
+                            index={this.state.index}
+                            />
                         { Items }
+                         {/* {this.state.data} */}
                     </div>
                 </InfiniteScroll>
             );
