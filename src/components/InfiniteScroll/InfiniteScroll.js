@@ -51,10 +51,10 @@ export const InfiniteScroll = connect(stateToProps) (
             })
     
             console.log('RELOAD scroll')
-            // await this.props.dispatch(getGifs());
-        //     this.setState({
-        //         loading: false
-        //     })
+            await this.props.dispatch(getGifs());
+            this.setState({
+                loading: false
+            })
         }
     }
     render() {
