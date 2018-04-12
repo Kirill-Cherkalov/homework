@@ -2,7 +2,7 @@ import * as React from 'react';
 import { getGifs } from '../../actions/getGifs'
 import { connect } from 'react-redux';
 
-const THRESHOLD = 500;
+const THRESHOLD = 100;
 
 const stateToProps = state => ({
     items: state.fetchGifs
@@ -23,14 +23,17 @@ export const InfiniteScroll = connect(stateToProps) (
 
     componentDidMount() {
         document.addEventListener('scroll', this.onScroll, {passive: true});
+        console.log('componentDidMount scroll')
     }
 
     componentWillUnmount() {
         document.removeEventListener('scroll', this.onScroll);
+        console.log('componentWillUnmount scroll')
     }
 
     componentDidUpdate() {
         this.onScroll();
+        console.log('componentDidUpdate scroll')
     }
 
     onScroll() {
@@ -41,11 +44,13 @@ export const InfiniteScroll = connect(stateToProps) (
         let scrollTop = document.body.scrollTop || document.documentElement.scrollTop,
             containerHeight = this.container.clientHeight,
             windowHeight = window.innerHeight;
+            console.log('onScroll scroll')
             // console.log('scrollTop', scrollTop)
             // console.log('containerHeight', containerHeight)
             // console.log('windowHeight', windowHeight)
 
         if (scrollTop + windowHeight >= containerHeight - THRESHOLD) {
+            console.log('RELOAD scroll')
             // scrollTop -= windowHeight
             this.props.dispatch(getGifs())
         }

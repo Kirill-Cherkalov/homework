@@ -38,19 +38,4 @@ class App extends Component {
   }
 }
 
-//  function requre() {
-//   return fetch('http://api.giphy.com/v1/gifs/search?q=ryan+gosling&api_key=WOpTuEdtuRcJiVkhbSPZLybQCucy3Wzf&limit=5', {
-//     method: "GET",
-//     credentials: 'same-origin',
-//   });
-// }
-// requre()
-//  .then((info) => {
-//   return info.json(); 
-//    console.log('clock', info)
-//  })
-//  .then((data) => {
-//    console.log('data', data)
-//  })
-
 export default App;
