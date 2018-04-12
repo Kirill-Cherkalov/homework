@@ -1,0 +1,7 @@
+.leftButton {
+    border: none;
+    border-radius: 20px;
+    width: 80px;
+    height: 150px;
+    background-color: rgba(247,236,74, 1)
+}
