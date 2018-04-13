@@ -66,8 +66,8 @@ export class Preview extends Component {
 
             case( 'rightButton' ):
             return this.setState({
-                index: this.state.index - 1,
-                url: this.props.items[this.state.index - 1].url,
+                index: this.state.index + 1,
+                url: this.props.items[this.state.index + 1].url,
                 activity: true
             }); 
         }

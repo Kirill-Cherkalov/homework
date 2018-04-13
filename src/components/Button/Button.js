@@ -10,21 +10,15 @@ export class Button extends Component {
         let windowWidth = window.innerWidth;
         let windowHeight = window.innerHeight;
         let BtntPozWidth = (windowWidth - 480) / 2; 
-        let BtntPozHeight = (windowWidth - 480) / 2;
+        let BtntPozHeight = ((windowHeight - this.props.height) / 2) + (this.props.height / 2);
         if( this.btn.className === 'leftButton' ) {
              this.btn.style.left = BtntPozWidth + 'px';
-             this.btn.style.top = this.props.height + 'px';
+             this.btn.style.top = BtntPozHeight + 'px';
 
         } else if( this.btn.className === 'rightButton' ) {
              this.btn.style.right = BtntPozWidth + 'px';
-             this.btn.style.top = this.props.height + 'px';
+             this.btn.style.top = BtntPozHeight + 'px';
         }
-        // console.log('windowWidth', leftPoz)
-        // this.btn.style.left = leftPoz + 'px';
-        // console.log('this,props.height', this.props.height, this.btn.style.left = leftPoz + 'px')
-        // this.btn.target
-        // let btn = document.getElementsByClassName('leftButton')
-
     }
 
     render() {
