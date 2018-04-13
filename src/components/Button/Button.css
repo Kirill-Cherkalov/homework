@@ -4,10 +4,11 @@
     border: none;
     margin: auto;
     border-radius: 20px;
-    width: 80px;
-    height: 150px;
-    background-color: rgba(247,236,74, 1);
+    width: 50px;
+    height: 100px;
+    background-color: rgba(247,236,74, 0.5);
     cursor: pointer;
+    z-index: 10;
 }
 
 .leftButton {

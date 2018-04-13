@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './Image.css';
-import { Button } from '../Button/Button'
 
 
 export class Image extends Component {

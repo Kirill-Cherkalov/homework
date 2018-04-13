@@ -32,6 +32,11 @@ export class Preview extends Component {
     }
 
     handleKeyPress(e) {
+        if( this.state.index - 1 === 0 || this.state.index + 1 === this.props.items.length ) {
+            return this.setState({
+                activity: false
+            });
+        }
         switch(e.keyCode || e.target.className) {
             case( 27 ):
             return this.setState({
@@ -77,21 +82,28 @@ export class Preview extends Component {
         
     }
 
+    componentDidUpdate() {
+        console.log('this.preview', this.props.items[this.state.index] && this.props.items[this.state.index].height );
+    }
+
     render() {
         const elem = <img src={this.state.url} />
+        const height =  this.props.items[this.state.index] && this.props.items[this.state.index].height;
         const className = this.state.activity ? 'preview visible' : 'hidden';
         return (
             <div className={className} >
                 <Button 
-                modif='left'
-                act={this.state.activity}
-                func={this.handleKeyPress.bind(this)}
+                    modif='left'
+                    act={this.state.activity}
+                    func={this.handleKeyPress.bind(this)}
+                    height={height}
                 />
                 {elem }
                 <Button 
-                modif='right'
-                act={this.state.activity}
-                func={this.handleKeyPress.bind(this)}
+                    modif='right'
+                    act={this.state.activity}
+                    func={this.handleKeyPress.bind(this)}
+                    height={height}
                 />
             </div>
         );

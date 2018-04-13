@@ -1,13 +1,7 @@
 import React, { Component } from 'react';
 import { Content } from '../Content/Content';
-import { connect } from 'react-redux'
 
     export class Item extends Component {
-        // state = {
-        //     loading: true,
-        //     images: []
-        // };
-    
         componentDidMount (props) {
                 let rowHeight = 20;
                 let rowGap = 10;
@@ -16,16 +10,13 @@ import { connect } from 'react-redux'
                 item.style.gridRowEnd = "span " + rowSpan;
             }
 
-        componentWillUpdate(props) {
-        }
-    
         render() {
             return (
                <div className='item' >
                     <Content 
-                    src={this.props.src}
-                    update={this.props.update}
-                    index={this.props.index}/>
+                        src={this.props.src}
+                        update={this.props.update}
+                        index={this.props.index}/>
                </div>
             );
         }

@@ -13,13 +13,14 @@ export function getGifs() {
             }
 
             let Urls = [];
-            let {  data, data: obj, pagination } = await gifs.json();
+            let {  data: obj, pagination } = await gifs.json();
 
             obj.forEach(element => {
                 Urls.push({
                     url: element.images['480w_still'].url && element.images['480w_still'].url,
                     height: element.images['480w_still'].height,
-                    offset: pagination.offset
+                    offset: pagination.offset,
+                    width: element.images['480w_still'].width,
 
                 })
             });

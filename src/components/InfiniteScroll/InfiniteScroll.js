@@ -40,7 +40,6 @@ export const InfiniteScroll = connect(stateToProps) (
             return;
         }
 
-        
         let scrollTop = document.body.scrollTop || document.documentElement.scrollTop,
             containerHeight = this.container.clientHeight,
             windowHeight = window.innerHeight;
@@ -50,11 +49,10 @@ export const InfiniteScroll = connect(stateToProps) (
                 loading: true
             })
     
-            console.log('RELOAD scroll')
-            // await this.props.dispatch(getGifs());
-            // this.setState({
-            //     loading: false
-            // })
+        //     await this.props.dispatch(getGifs());
+        //     this.setState({
+        //         loading: false
+        //     })
         }
     }
     render() {

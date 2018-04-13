@@ -12,7 +12,6 @@ const stateToProps = state => ({
 
 export const Grid = connect(stateToProps) (
      class Grid extends Component {
-
          state = {
             index: 0,
             prevProps:[]
@@ -54,7 +53,7 @@ export const Grid = connect(stateToProps) (
                         <Preview 
                             items={this.props.items}
                             index={this.state.index}
-                            />
+                        />
                     </div>
                 </InfiniteScroll>
             );
