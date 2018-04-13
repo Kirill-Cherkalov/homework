@@ -6,21 +6,67 @@ export class Preview extends Component {
 
     constructor(props) {
         super(props);
+        let index = this.props.index && this.props.index + 1;
+        const url = this.props.items[index] && this.props.items[index].url ;
         this.state = {
             activity: false,
+            url: url,
+            index: index
         }
-        this.handleKeyPress = this.handleKeyPress.bind(this)
+        this.handleClick = this.handleClick.bind(this);
+        this.handleKeyPress =this.handleKeyPress.bind(this);
+    }
+
+    componentWillReceiveProps(nextProps) {
+        let index = nextProps.index && nextProps.index + 1;
+        const url = nextProps.items[index] && nextProps.items[index].url ;
+        this.setState({
+            url: url,
+            index: index
+        })
     }
 
     componentDidMount() {
         document.addEventListener('click', this.handleClick.bind(this));
+        document.addEventListener('keydown', this.handleKeyPress);
     }
 
     handleKeyPress(e) {
-        if( e.keyCode === 27 ) {
-            this.handleClick();
+        switch(e.keyCode || e.target.className) {
+            case( 27 ):
+            return this.setState({
+                activity: false
+            });
+
+            case( 37 ):
+            return this.setState({
+                index: this.state.index - 1,
+                url: this.props.items[this.state.index - 1].url,
+                activity: true
+            });
+
+            case( 39 ):
+            return this.setState({
+                index: this.state.index + 1,
+                url: this.props.items[this.state.index + 1].url,
+                activity: true
+            });
+
+            case( 'leftButton' ):
+            return this.setState({
+                index: this.state.index - 1,
+                url: this.props.items[this.state.index - 1].url,
+                activity: true
+            }); 
+
+            case( 'rightButton' ):
+            return this.setState({
+                index: this.state.index - 1,
+                url: this.props.items[this.state.index - 1].url,
+                activity: true
+            }); 
         }
-    }
+}
 
     handleClick(e) {
         if( e.target.tagName === 'IMG' ) {
@@ -32,22 +78,20 @@ export class Preview extends Component {
     }
 
     render() {
-        let index = this.props.index && this.props.index + 1;
-        let url = this.props.items[index] && this.props.items[index].url ;
-        const elem = <img 
-        src={url}
-        />
-        const className = this.state.activity ? 'preview visible' : 'hidden'
+        const elem = <img src={this.state.url} />
+        const className = this.state.activity ? 'preview visible' : 'hidden';
         return (
             <div className={className} >
                 <Button 
                 modif='left'
                 act={this.state.activity}
+                func={this.handleKeyPress.bind(this)}
                 />
                 {elem }
                 <Button 
                 modif='right'
                 act={this.state.activity}
+                func={this.handleKeyPress.bind(this)}
                 />
             </div>
         );

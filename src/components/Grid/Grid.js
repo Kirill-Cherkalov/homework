@@ -47,17 +47,14 @@ export const Grid = connect(stateToProps) (
                         update={this.updateData.bind(this)}/>
                 );
             })
-            console.log('this.state.data', this.state.data)
-            console.log('index', this.state.index)
             return (
                 <InfiniteScroll fetchNext={this.props.dispatch(getGifs)}>
                     <div className='grid'>
+                        { Items }
                         <Preview 
                             items={this.props.items}
                             index={this.state.index}
                             />
-                        { Items }
-                         {/* {this.state.data} */}
                     </div>
                 </InfiniteScroll>
             );

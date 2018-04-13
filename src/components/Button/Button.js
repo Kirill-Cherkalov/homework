@@ -2,28 +2,15 @@ import React, { Component } from 'react';
 import './Button.css';
 
 export class Button extends Component {
-    // constructor(props) {
-    //     super(props);
-    //     this.state = {
-    //         position: 'left'
-    //     }
-    // }
-
-    componentDidMount(props) {
-
-    }
-
-    handleClick(porps) {
-        console.log('jo')
+    handleClick(e) {
+        this.props.func(e);
     }
 
     render() {
-        // const state = this.state.position;
         let btnClass = this.props.modif === 'left' ? 'leftButton' : 'rightButton' ;
-        // let bthContainer = this.props.modif === 'righ' ? 'leftCont' : 'rightCont' ;
         return (
-            <div className=''>
-                <button className={btnClass + ' hidden'}
+            <div className={this.props.activity}>
+                <button className={btnClass}
                 onClick={this.handleClick.bind(this)}
                 />
             </div>

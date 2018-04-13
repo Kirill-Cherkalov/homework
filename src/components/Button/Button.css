@@ -1,22 +1,29 @@
 .leftButton,
 .rightButton {
-    position: absolute;
+    position: fixed;
     border: none;
+    margin: auto;
     border-radius: 20px;
     width: 80px;
     height: 150px;
-    background-color: rgba(247,236,74, 1)
+    background-color: rgba(247,236,74, 1);
+    cursor: pointer;
 }
 
 .leftButton {
     left: 0;
+    top: 0
 }
 
 .rightButton {
     right: 0;
+    top: 0;
 }
 
-.hidden {
+.true {
+    visibility: visible;
+}
+
+.false {
     visibility: hidden;
-    /* display: none; */
 }
