@@ -3,7 +3,6 @@ import { getGifs } from '../../actions/getGifs'
 import { connect } from 'react-redux';
 import './InfiniteScroll.css'
 
-
 const THRESHOLD = 300;
 
 const stateToProps = state => ({

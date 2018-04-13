@@ -19,9 +19,7 @@ export function getGifs() {
                 Urls.push({
                     url: element.images['480w_still'].url && element.images['480w_still'].url,
                     height: element.images['480w_still'].height,
-                    offset: pagination.offset,
-                    width: element.images['480w_still'].width,
-
+                    offset: pagination.offset
                 })
             });
             dispatch({

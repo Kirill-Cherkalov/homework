@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './Image.css';
 
-
 export class Image extends Component {
     constructor(props) {
         super(props);
@@ -41,13 +40,13 @@ export class Image extends Component {
             state === 'loaded' ? 'image' :
             state === 'failed to load' ? 'spinner' : 'spinner';
         return (
-                <img className={modif}
-                    tabIndex='0'
-                    src={this.props.src}
-                    onLoad={this.handleImageLoaded.bind(this)}
-                    onError={this.handleImageErrored.bind(this)}
-                    onClick={this.handleClick.bind(this)}
-                />
+            <img className={modif}
+                tabIndex='0'
+                src={this.props.src}
+                onLoad={this.handleImageLoaded.bind(this)}
+                onError={this.handleImageErrored.bind(this)}
+                onClick={this.handleClick.bind(this)}
+            />
         );
     }
 }

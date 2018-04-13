@@ -1,6 +1,4 @@
 .preview >  img {
-    /* position: fixed; */
-    /* margin: auto; */
     position: fixed;
     z-index: 10;
     top: 0;
@@ -13,17 +11,14 @@
     max-height: 99%;
     margin: auto;
     z-index: 2;
-    -webkit-box-shadow: 0 0 20px #000, 0 0 0 1000px rgba(210,210,210,.4);
-            box-shadow: 0 0 20px #000, 0 0 0 1000px rgba(210,210,210,.4);
+    cursor: progress;
+    -webkit-box-shadow: 0 0 40px #000, 0 0 0 1000px rgba(0,0,0,.8);
+            box-shadow: 0 0 40px #000, 0 0 0 1000px rgba(05,0,0,.8);
 }
 
 .preview {
   position: relative;
-  /* position: absolute; */
-  /* top: 50%; */
-  /* left: 50%; */
   margin: auto;
-  /* margin: auto; */
 }
 
 .hidden {

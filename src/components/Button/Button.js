@@ -9,8 +9,8 @@ export class Button extends Component {
     componentWillUpdate(props) {
         let windowWidth = window.innerWidth;
         let windowHeight = window.innerHeight;
-        let BtntPozWidth = (windowWidth - 480) / 2; 
-        let BtntPozHeight = ((windowHeight - this.props.height) / 2) + (this.props.height / 2);
+        let BtntPozWidth = (windowWidth - 480) / 2 - 105; 
+        let BtntPozHeight = ((windowHeight - this.props.height) / 2) + (this.props.height / 2) - 50;
         if( this.btn.className === 'leftButton' ) {
              this.btn.style.left = BtntPozWidth + 'px';
              this.btn.style.top = BtntPozHeight + 'px';

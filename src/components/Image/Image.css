@@ -1,33 +1,10 @@
-  .content img{
-      width: 100%;
-    }
-  
-  img {
-    cursor: pointer;
+.content img{
+    width: 100%;
   }
-  /* .active:focus {
-    position: fixed;
-    z-index: 10;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    width: auto;
-    height: auto;
-    max-width: 99%;
-    max-height: 99%;
-    overflow: hidden;
-    margin: auto;
-    -webkit-box-shadow: 0 0 20px #000, 0 0 0 1000px rgba(210,210,210,.4);
-            box-shadow: 0 0 20px #000, 0 0 0 1000px rgba(210,210,210,.4);
-  } */
-  /* img[tabindex="0"]:focus,
-  img[tabindex="0"]:focus ~ * {
-    pointer-events: none;
-    cursor: pointer;
-  } */
-  
-  
+
+img {
+  cursor: pointer;
+}
 
 @keyframes spinner {
   to {transform: rotate(360deg);}
@@ -50,6 +27,3 @@
   border-top-color: #07d;
   animation: spinner .6s linear infinite;
 }
-
-/* .image-container {
-} */

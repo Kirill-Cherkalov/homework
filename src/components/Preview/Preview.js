@@ -3,7 +3,6 @@ import './Preview.css';
 import { Button } from '../Button/Button';
 
 export class Preview extends Component {
-
     constructor(props) {
         super(props);
         let index = this.props.index && this.props.index + 1;
@@ -82,16 +81,12 @@ export class Preview extends Component {
         
     }
 
-    componentDidUpdate() {
-        console.log('this.preview', this.props.items[this.state.index] && this.props.items[this.state.index].height );
-    }
-
     render() {
         const elem = <img src={this.state.url} />
         const height =  this.props.items[this.state.index] && this.props.items[this.state.index].height;
         const className = this.state.activity ? 'preview visible' : 'hidden';
         return (
-            <div className={className} >
+            <div className={className}>
                 <Button 
                     modif='left'
                     act={this.state.activity}

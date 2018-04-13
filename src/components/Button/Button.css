@@ -1,24 +1,30 @@
 .leftButton,
 .rightButton {
     position: fixed;
-    border: none;
     margin: auto;
-    border-radius: 20px;
-    width: 50px;
-    height: 100px;
-    background-color: rgba(247,236,74, 0.5);
     cursor: pointer;
     z-index: 10;
+    visibility: hidden;
 }
 
-.leftButton {
-    left: 0;
-    top: 0
-}
-
-.rightButton {
-    right: 0;
+.rightButton::after {
+    content: '';
+    position: absolute;
     top: 0;
+    right: 0;
+    visibility: visible;
+    border: 30px solid transparent;
+    border-left: 50px solid rgba(0,0,139, 0.8);
+}
+
+.leftButton::after {
+    content: '';
+    visibility: visible;
+    top: 0;
+    left: 0;
+    position: absolute;
+    border: 30px solid transparent;
+    border-right: 50px solid rgba(0,0,139, 0.8);
 }
 
 .true {

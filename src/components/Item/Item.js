@@ -3,10 +3,8 @@ import { Content } from '../Content/Content';
 
     export class Item extends Component {
         componentDidMount (props) {
-                let rowHeight = 20;
-                let rowGap = 10;
                 let item = document.getElementsByClassName("item")[this.props.index];
-                let rowSpan = Math.ceil(((this.props.height / 2) + rowGap) / (rowHeight + rowGap));
+                let rowSpan = Math.ceil(((this.props.height * 0.5 ) + 10) * (0.033333));
                 item.style.gridRowEnd = "span " + rowSpan;
             }
 
@@ -16,7 +14,8 @@ import { Content } from '../Content/Content';
                     <Content 
                         src={this.props.src}
                         update={this.props.update}
-                        index={this.props.index}/>
+                        index={this.props.index}
+                    />
                </div>
             );
         }
