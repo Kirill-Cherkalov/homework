@@ -10,6 +10,9 @@ export class Image extends Component {
             imageStatus: 'loading',
             activity: false
         }
+        this.handleImageLoaded = this.handleImageLoaded.bind(this);
+        this.handleImageErrored = this.handleImageErrored.bind(this);
+        this.handleClick = this.handleClick.bind(this);
     }
 
     error(ev){
@@ -26,10 +29,9 @@ export class Image extends Component {
     }
 
     handleClick(el) {
-        // console.log('hi')
         el.target.classList.add('active');
         this.setState({
-            activity: true
+            activity: true,
         })
         this.props.update(this.props.index);
     }
@@ -40,16 +42,13 @@ export class Image extends Component {
             state === 'loaded' ? 'image' :
             state === 'failed to load' ? 'spinner' : 'spinner';
         return (
-            // <div className='image-container'>
-                    <img className={modif}
-                        tabIndex='0'
-                        src={this.props.src}
-                        onLoad={this.handleImageLoaded.bind(this)}
-                        onError={this.handleImageErrored.bind(this)}
-                        onClick={this.handleClick.bind(this)}
-                    />
-            // </div>
-        
+                <img className={modif}
+                    tabIndex='0'
+                    src={this.props.src}
+                    onLoad={this.handleImageLoaded.bind(this)}
+                    onError={this.handleImageErrored.bind(this)}
+                    onClick={this.handleClick.bind(this)}
+                />
         );
     }
 }

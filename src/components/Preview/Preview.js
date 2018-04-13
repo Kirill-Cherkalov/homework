@@ -1,30 +1,34 @@
-import React, { Component } from 'react'
-import './Preview.css'
-import { Button } from '../Button/Button'
+import React, { Component } from 'react';
+import './Preview.css';
+import { Button } from '../Button/Button';
 
 export class Preview extends Component {
-    state = {
-        activity: false
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            activity: false,
+        }
+        this.handleKeyPress = this.handleKeyPress.bind(this)
     }
+
     componentDidMount() {
-        document.addEventListener('keydown', this.handleKeyPress)
+        document.addEventListener('click', this.handleClick.bind(this));
     }
 
     handleKeyPress(e) {
-        console.log('ji')
         if( e.keyCode === 27 ) {
-            this.handleClick()
+            this.handleClick();
         }
     }
 
-    handleClick() {
-        this.setState({
-            activity: !this.state.activity
-        })
-    }
-
-    componentWillMount() {
-        console.log('update')
+    handleClick(e) {
+        if( e.target.tagName === 'IMG' ) {
+            this.setState({
+                activity: !this.state.activity
+            })
+        }
+        
     }
 
     render() {
@@ -32,16 +36,15 @@ export class Preview extends Component {
         let url = this.props.items[index] && this.props.items[index].url ;
         const elem = <img 
         src={url}
-        onClick={() => this.handleClick()}/>
-        console.log('elem Preview' , elem)
+        />
         const className = this.state.activity ? 'preview visible' : 'hidden'
         return (
-            <div className={className}>
+            <div className={className} >
                 <Button 
                 modif='left'
                 act={this.state.activity}
                 />
-                {elem}
+                {elem }
                 <Button 
                 modif='right'
                 act={this.state.activity}
