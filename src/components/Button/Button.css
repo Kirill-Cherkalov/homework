@@ -34,3 +34,25 @@
 .false {
     visibility: hidden;
 }
+
+@media (max-width: 690px) {
+    .rightButton::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        visibility: visible;
+        border: 30px solid transparent;
+        border-top: 50px solid rgba(0,0,139, 0.8);
+    }
+
+    .leftButton::after {
+        content: '';
+        visibility: visible;
+        top: 0;
+        left: 0;
+        position: absolute;
+        border: 30px solid transparent;
+        border-bottom: 50px solid rgba(0,0,139, 0.8);
+    }
+}
