@@ -4,7 +4,7 @@ export function getGifs() {
             const numb = 50;
             let offset =  getState().fetchGifs[0] ?  getState().fetchGifs[0].offset : getState().fetchGifs.length ;
 
-            let gifs = await fetch('http://api.giphy.com/v1/gifs/search?q=trending&offset=' + offset + '&api_key=WOpTuEdtuRcJiVkhbSPZLybQCucy3Wzf&limit=' + numb + '' , {
+            let gifs = await fetch('https://api.giphy.com/v1/gifs/search?q=trending&offset=' + offset + '&api_key=WOpTuEdtuRcJiVkhbSPZLybQCucy3Wzf&limit=' + numb + '' , {
                 method: "GET",
                 credentials: 'same-origin',
             })
