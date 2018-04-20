@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './Preview.css';
 import { Button } from '../Button/Button';
+// import PropTypes from 'prop-types';
 
 export class Preview extends Component {
     constructor(props) {
@@ -11,7 +12,7 @@ export class Preview extends Component {
             activity: false,
             url: url,
             index: index
-        }
+        };
         this.handleClick = this.handleClick.bind(this);
         this.handleKeyPress =this.handleKeyPress.bind(this);
     }
@@ -22,7 +23,7 @@ export class Preview extends Component {
         this.setState({
             url: url,
             index: index
-        })
+        });
     }
 
     componentDidMount() {
@@ -36,53 +37,42 @@ export class Preview extends Component {
                 activity: false
             });
         }
+
         switch(e.keyCode || e.target.className) {
-            case( 27 ):
+        case( 27 ):
             return this.setState({
                 activity: false
             });
 
-            case( 37 ):
+        case( 37 ):
+        case( 'leftButton' ):
             return this.setState({
                 index: this.state.index - 1,
                 url: this.props.items[this.state.index - 1].url,
                 activity: true
             });
 
-            case( 39 ):
+        case( 39 ):
+        case( 'rightButton' ):
             return this.setState({
                 index: this.state.index + 1,
                 url: this.props.items[this.state.index + 1].url,
                 activity: true
             });
-
-            case( 'leftButton' ):
-            return this.setState({
-                index: this.state.index - 1,
-                url: this.props.items[this.state.index - 1].url,
-                activity: true
-            }); 
-
-            case( 'rightButton' ):
-            return this.setState({
-                index: this.state.index + 1,
-                url: this.props.items[this.state.index + 1].url,
-                activity: true
-            }); 
         }
-}
+    }
 
     handleClick(e) {
         if( e.target.tagName === 'IMG' ) {
             this.setState({
                 activity: !this.state.activity
-            })
+            });
         }
         
     }
 
     render() {
-        const elem = <img src={this.state.url} />
+        const elem = <img src={this.state.url} />;
         const height =  this.props.items[this.state.index] && this.props.items[this.state.index].height;
         const className = this.state.activity ? 'preview visible' : 'hidden';
         return (
@@ -104,3 +94,6 @@ export class Preview extends Component {
         );
     }
 }
+
+// Preview.propType = {
+// };

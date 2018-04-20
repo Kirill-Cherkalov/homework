@@ -1,7 +1,8 @@
 import * as React from 'react';
-import { getGifs } from '../../actions/getGifs'
+import { getGifs } from '../../actions/getGifs';
 import { connect } from 'react-redux';
-import './InfiniteScroll.css'
+import './InfiniteScroll.css';
+import PropTypes from 'prop-types';
 
 const THRESHOLD = 300;
 
@@ -10,7 +11,7 @@ const stateToProps = state => ({
 });
 
 export const InfiniteScroll = connect(stateToProps) (
- class InfiniteScroll extends React.Component {
+    class InfiniteScroll extends React.Component {
 
     state = {
         loading: false
@@ -46,12 +47,12 @@ export const InfiniteScroll = connect(stateToProps) (
         if (scrollTop + windowHeight >= containerHeight - THRESHOLD) {
             this.setState({
                 loading: true
-            })
+            });
     
             await this.props.dispatch(getGifs());
             this.setState({
                 loading: false
-            })
+            });
         }
     }
     render() {
@@ -67,4 +68,8 @@ export const InfiniteScroll = connect(stateToProps) (
             </div>
         );
     }
-})
+    });
+
+InfiniteScroll.propTypes = {
+    children: PropTypes.object
+};

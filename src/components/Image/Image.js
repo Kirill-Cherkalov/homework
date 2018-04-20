@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './Image.css';
+import PropTypes from 'prop-types';
 
 export class Image extends Component {
     constructor(props) {
@@ -7,7 +8,7 @@ export class Image extends Component {
         this.state = {
             imageStatus: 'loading',
             activity: false
-        }
+        };
         this.handleImageLoaded = this.handleImageLoaded.bind(this);
         this.handleImageErrored = this.handleImageErrored.bind(this);
         this.handleClick = this.handleClick.bind(this);
@@ -18,11 +19,11 @@ export class Image extends Component {
     }
 
     handleImageLoaded() {
-        this.setState({ imageStatus: "loaded" });
+        this.setState({ imageStatus: 'loaded' });
     }
 
     handleImageErrored(ev) {
-        this.setState({ imageStatus: "failed to load" });
+        this.setState({ imageStatus: 'failed to load' });
         ev.target.removeAttribute('src');
     }
 
@@ -30,15 +31,15 @@ export class Image extends Component {
         el.target.classList.add('active');
         this.setState({
             activity: true,
-        })
+        });
         this.props.update(this.props.index);
     }
 
     render() {
-        const state = this.state.imageStatus
+        const state = this.state.imageStatus;
         let modif = state === 'loading' ?  'spinner image' :
             state === 'loaded' ? 'image' :
-            state === 'failed to load' ? 'spinner' : 'spinner';
+                state === 'failed to load' ? 'spinner' : 'spinner';
         return (
             <img className={modif}
                 tabIndex='0'
@@ -50,3 +51,10 @@ export class Image extends Component {
         );
     }
 }
+
+Image.propTypes = {
+    update: PropTypes.func,
+    index: PropTypes.number,
+    imageStatus: PropTypes.string,
+    src: PropTypes.string
+};
