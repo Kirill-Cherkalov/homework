@@ -23,7 +23,7 @@ import { Content } from '../Content/Content';
             }
 
         resize(props) {
-            let windowWidth = window.innerWidth;
+            let windowWidth = window.innerWidth - 16;
 
             if( windowWidth > 275 && windowWidth < 285 ) {
                 console.log('284')
